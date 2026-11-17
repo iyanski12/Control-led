@@ -21,9 +21,8 @@
     <!-- Microphone for mic-mode music sync -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-    <!-- Foreground service (required for any foreground service) -->
+    <!-- Foreground service permissions -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <!-- mediaProjection foreground service type (API 34+) -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
 
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
@@ -57,11 +56,12 @@
             </intent-filter>
         </activity>
 
-        <!-- Must declare foregroundServiceType="mediaProjection" for AudioPlaybackCapture -->
+        <!-- Declared screen capture service to prevent crashes -->
         <service
-            android:name=".MediaProjectionService"
+            android:name=".ScreenCaptureService"
             android:foregroundServiceType="mediaProjection"
             android:exported="false" />
 
     </application>
+
 </manifest>
